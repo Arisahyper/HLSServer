@@ -8,11 +8,14 @@ import (
 
 func main() {
 	// configure the songs directory name and port
-	const songsDir = "songs"
+	const songsDir = "video"
 	const port = 8080
 
 	// add a handler for the song files
-	http.Handle("/", addHeaders(http.FileServer(http.Dir(songsDir))))
+	http.Handle("/", addHeaders(http.FileServer(http.Dir("video"))))
+	http.Handle("/songs/", addHeaders(http.FileServer(http.Dir("songs"))))
+	http.Handle("/videos/", addHeaders(http.FileServer(http.Dir("video"))))
+	
 	fmt.Printf("Starting server on %v\n", port)
 	log.Printf("Serving %s on HTTP port: %v\n", songsDir, port)
 

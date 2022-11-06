@@ -1,0 +1,11 @@
+<h1>hls-video</h1>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<video id="video_smaple" controls>
+<script>
+  if(Hls.isSupported()) {
+    var video = document.getElementById('video_smaple');
+    var hls = new Hls();
+    hls.loadSource('https://golhs-367811.uc.r.appspot.com/starry/outputlist.m3u8'); //ここで.m3u8ファイルを指定
+    hls.attachMedia(video);
+  }
+</script>
